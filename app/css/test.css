@@ -1,3 +1,7 @@
+ul.none {
+	list-style-type: none;
+}
+
 /* Фикс для определения координат позиции блоков в строках таблиц */
 td, th {
 	position: relative;
@@ -20,35 +24,15 @@ td .block_close, th .block_close {
 	z-index: -1;
 }
 
+.block_hidden {
+	display: none;
+}
+
 /* Цвета для блоков */
-#block_1 {
+.block_even {
 	background-color: #FFFBE1;
 }
 
-#block_2 {
-	background-color: #FFEBE1;
-}
-
-#block_3 {
-	background-color: #FFFBE1;
-}
-
-#block_4 {
-	background-color: #FFEBE1;
-}
-
-#block_5 {
-	background-color: #FFFBE1;
-}
-
-#block_6 {
-	background-color: #FFEBE1;
-}
-
-#block_7 {
-	background-color: #FFFBE1;
-}
-
-#block_8 {
+.block_odd {
 	background-color: #FFEBE1;
 }
