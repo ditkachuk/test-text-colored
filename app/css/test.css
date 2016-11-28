@@ -2,6 +2,10 @@ ul.none {
 	list-style-type: none;
 }
 
+ul.menu a {
+	cursor: pointer;
+}
+
 /* Фикс для определения координат позиции блоков в строках таблиц */
 td, th {
 	position: relative;

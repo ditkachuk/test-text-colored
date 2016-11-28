@@ -10,15 +10,16 @@
     </head>
     <body>
         <div id="tools" style="position: fixed; top: 0; left: 0; z-index: 9999;">
-            <button onclick="app.showLinks()">Сформировать список пометок</button>
             <button onclick="app.renderDocument()">Отобразить документ без знаков %%</button>
-            <br>
-            <div id="links" style="display: none;">
+            <br><br>
+            <button onclick="app.showLinks()">Сформировать список пометок</button>
+            <br><br>
+            <div id="links">
                 Показать документ с одним подсвеченным разделом:
                 <ul></ul>
             </div>
         </div>
-        <div id="html" style="display: none;">
+        <div id="html">
             <div class="main-title">
                 <img src="images/gerb.png" alt="Герб" class="gerb" />
                 <div class="main-text">

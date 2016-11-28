@@ -1,10 +1,11 @@
 (function() {
     $(function() {
-        window.app = new app();
+        $('#html').hide();
+        window.app = new app('data/data.json');
     });
 
-    function app() {
-        this.html = '';
+    function app(url) {
+        this.url = url;
         this.target = $('.wrap');
         this.rendered = {
             block: [],
@@ -12,8 +13,6 @@
         };
 
         this.loadDocumentJSON(this.target);
-        $('#html').hide();
-
         this.renderDocument = function() {
             $('#html').show();
         };
@@ -23,19 +22,26 @@
 
             $.each(this.matches, function(index, match) {
                 var blockIndex = parseInt(match.replace('%%', ''));
-                links += '<li><a href="#block_' + blockIndex + '" onclick="app.gotoColorBlock(' + blockIndex + ')">' + blockIndex + '</a></li>';
+                links += '<li><button onclick="app.gotoColorBlock(' + blockIndex + ')">' + blockIndex + '</button></li>';
             });
 
-            $('#links').html(links).show();
+            $('#links ul').html(links);
+            $('#links').show();
         };
 
         this.gotoColorPart = function(blockIndex) {
             this.rendered.part[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'part');
+            $('html, body').animate({
+                scrollTop: $("#part_" + blockIndex + "_enter").offset().top
+            }, 1000);
         };
 
         this.gotoColorBlock = function(blockIndex) {
             $('#html').show();
             this.rendered.block[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'block');
+            $('html, body').animate({
+                scrollTop: $("#block_" + blockIndex + "_enter").offset().top
+            }, 1000);
         };
     }
 
@@ -102,18 +108,20 @@
                 + '<h1>' + part.title + '</h1>' + content
                 + '<span id="part_' + index + '_close" class="part_' + index + ' part_close"></span>';
 
-            tocHTML += '<li><a href="#part_' + index + '" onclick="app.gotoColorPart(' + index + ')">' + part.title + '</a></li>';
+            tocHTML += '<li><a onclick="app.gotoColorPart(' + index + ')">' + part.title + '</a></li>';
         });
 
         return target[0].innerHTML = tocHTML + '</ul>' + contentHTML;
     };
 
-    app.prototype.loadDocumentJSON = function(target) {
+    app.prototype.loadDocumentJSON = function() {
         var self = this;
         
-        return $.ajax({url: 'data/data.json', dataType: "json"}).done(function(response) {
-            self.html = self.renderDocumentHTML(response, target);
-            self.addColorBlocks(target);
+        return $.ajax({url: this.url, dataType: "json"}).done(function(response) {
+            self.json = response;
+
+            self.renderDocumentHTML(response, self.target);
+            self.addColorBlocks(self.target);
         });
     };
 })();
