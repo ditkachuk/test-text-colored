@@ -12,7 +12,7 @@
             part: []
         };
 
-        this.loadDocumentJSON(this.target);
+        this.loadDocumentJSON();
         this.renderDocument = function() {
             $('#html').show();
         };
