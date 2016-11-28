@@ -1,0 +1,37 @@
+.block {
+	position: absolute;
+	margin: 0 auto;
+	z-index: -1;
+}
+
+.block_1 {
+	background-color: #FFFBE1;
+}
+
+.block_2 {
+	background-color: #FFEBE1;
+}
+
+.block_3 {
+	background-color: #FFFBE1;
+}
+
+.block_4 {
+	background-color: #FFEBE1;
+}
+
+.block_5 {
+	background-color: #FFFBE1;
+}
+
+.block_6 {
+	background-color: #FFEBE1;
+}
+
+.block_7 {
+	background-color: #FFFBE1;
+}
+
+.block_8 {
+	background-color: #FFEBE1;
+}

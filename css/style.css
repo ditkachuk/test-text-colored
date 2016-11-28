@@ -1,0 +1,183 @@
+body{
+	padding:0;
+	margin:0;
+	line-height: 1;
+	vertical-align: top;
+	font:normal 12px 'Times New Roman';
+}
+img{
+	max-width: 100%;
+}
+div{
+  box-sizing: border-box;
+}
+.gray{
+	color:#808080;
+}
+.main-title{
+	position: relative;
+	width:900px;
+	height:1286px;
+	background:#fff;
+	border-left:25px solid #E7EFEF;
+	border-right:25px solid #E7EFEF;
+	border-top:30px solid #E7EFEF;
+	border-bottom:30px solid #E7EFEF;
+	margin:0 auto 10px;
+}
+.main-title > .gerb{
+	width:170px;
+	margin:50px auto 150px;
+	display: block;
+}
+.main-text{
+  padding: 0 0 0 135px;
+  font-size: 18px;
+}
+.main-text h1{
+	margin-bottom:110px;
+}
+.main-text .main-dopinfo{
+	padding-left:10px;
+	margin-top:50px;
+}
+.main-text .main-dopinfo > div:first-child{
+	margin-bottom:10px;
+}
+.main-text ul{
+	margin-top:20px;
+	font-weight: 600;
+}
+.main-footer{
+	position: absolute;
+	bottom: 0;
+  width: 100%;
+  overflow:hidden;
+}
+.main-footer > div{
+	background:#fff;
+	border-top:30px solid #E7EFEF;
+	width:50%;
+  height: 210px;
+}
+.main-footer .text{
+  text-indent: inherit;
+  text-align: left;
+}
+.main-footer > div:first-child{
+	float:left;
+	border-right:15px solid #E7EFEF;
+	padding: 18px 25px;
+}
+.main-footer > div:first-child .text{
+	font-size: 14px;
+	line-height: 23px;
+}
+.main-footer > div:last-child{
+	border-left:15px solid #E7EFEF;
+  font-size: 18px;
+	float:right;
+	padding: 18px 40px;
+}
+.main-footer > div:last-child .text{
+	font-size: 18px;
+	line-height: 30px;
+}
+.main-footer .title{
+	font-size: 17px;
+	font-weight: 600;
+  margin-bottom: 10px;
+}
+img.title{
+	margin:0 auto;
+	display: block;
+}
+.active{
+	background:#FFFBE1;
+}
+.wrap{
+	width:910px;
+	margin:0 auto;
+	padding:0 60px 0 120px;
+}
+.menu li a{
+	color:#000;
+	text-decoration: none;
+}
+.menu li a:hover{
+	text-decoration: underline;
+}
+h2{
+	font-size:22px;
+	text-align: center;
+	font-weight: 600;
+	margin:50px 0 10px;
+}
+h3{
+	text-align: left;
+	font-size: 18px;
+	text-decoration: underline;
+	font-weight: 600;
+	margin:10px 30px;
+}
+ul, p, .text{
+  text-indent: 30px;
+  text-align: justify;
+	font-size:18px;
+  line-height: 30px;
+  margin:0;
+}
+ul{
+	padding:0;
+	margin-left:30px;
+	text-indent: 0px;
+}
+ul.decimal{
+	list-style-type: decimal;
+}
+ul li p{
+	text-indent: inherit;
+}
+.bold{
+	font-size:18px;
+	font-weight: 600;
+}
+table{
+	width:100%;
+	border-collapse: collapse;
+}
+table tr th, table tr td{
+	border:1px solid #000;
+	padding:10px;
+	font-size: 18px;
+}
+table tr td{
+	vertical-align: top;
+}
+.tbl1 tr td{
+	width:25%;
+}
+.tbl2 tr td{
+	text-align: center;
+}
+.tbl2 tr td:nth-child(2){
+	text-align: left;
+}
+.priloj p span{
+	margin-left:10px;
+}
+.priloj2 > ul{
+	margin-left:60px;
+}
+
+/* Подцветка блоков */
+td {
+	position: relative;
+}
+td .block_start {
+	position: absolute;
+	top: 0;
+}td .block_close {
+	position: absolute;
+	bottom: 0;
+}
