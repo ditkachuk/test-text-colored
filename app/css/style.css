@@ -169,15 +169,3 @@ table tr td{
 .priloj2 > ul{
 	margin-left:60px;
 }
-
-/* Подцветка блоков */
-td {
-	position: relative;
-}
-td .block_start {
-	position: absolute;
-	top: 0;
-}td .block_close {
-	position: absolute;
-	bottom: 0;
-}

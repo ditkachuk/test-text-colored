@@ -1,0 +1,54 @@
+/* Фикс для определения координат позиции блоков в строках таблиц */
+td, th {
+	position: relative;
+}
+
+td .block_start, th .block_start {
+	position: absolute;
+	top: 0;
+}
+
+td .block_close, th .block_close {
+	position: absolute;
+	bottom: 0;
+}
+
+/* Блок подложки с цветом */
+.block {
+	position: absolute;
+	margin: 0 auto;
+	z-index: -1;
+}
+
+/* Цвета для блоков */
+#block_1 {
+	background-color: #FFFBE1;
+}
+
+#block_2 {
+	background-color: #FFEBE1;
+}
+
+#block_3 {
+	background-color: #FFFBE1;
+}
+
+#block_4 {
+	background-color: #FFEBE1;
+}
+
+#block_5 {
+	background-color: #FFFBE1;
+}
+
+#block_6 {
+	background-color: #FFEBE1;
+}
+
+#block_7 {
+	background-color: #FFFBE1;
+}
+
+#block_8 {
+	background-color: #FFEBE1;
+}
