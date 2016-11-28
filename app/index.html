@@ -9,49 +9,61 @@
         <script type="text/javascript" src="js/test.js"></script>
     </head>
     <body>
-        <div class="main-title">
-            <img src="images/gerb.png" alt="Герб" class="gerb" />
-            <div class="main-text">
-                <div class="gray">Клинические рекомендации</div>
-                <h1 id="title"></h1>
-                <div class="main-dopinfo">
-                    <div>
-                        <span class="gray">МКБ 10:</span>
-                        <b id="mkb"></b>
-                    </div>
-                    <div>
-                        <span class="gray">Год утверждения (частота пересмотра):</span>
-                        <b id="year"></b>
-                    </div>
-                </div>
-                <div class="main-dopinfo">
-                    <div>
-                        <span class="gray">ID: </span>
-                        <b id="id"></b>
-                    </div>
-                    <div>
-                        <span class="gray">URL:</span>
-                        <b id="url"></b>
-                    </div>
-                </div>
-                <div class="main-dopinfo">
-                    <div class="gray">Профессиональные ассоциации:</div>
-                    <ul>
-                        <li id="proff_associations"></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="main-footer">
-                <div>
-                    <div class="title">Утверждены</div>
-                    <div class="text" id="approved"></div>
-                </div>
-                <div>
-                    <div class="title">Согласованы</div>
-                    <div class="text" id=""></div>
-                </div>
+        <div id="tools" style="position: fixed; top: 0; left: 0; z-index: 9999;">
+            <button onclick="app.showLinks()">Сформировать список пометок</button>
+            <button onclick="app.renderDocument()">Отобразить документ без знаков %%</button>
+            <br>
+            <div id="links" style="display: none;">
+                Показать документ с одним подсвеченным разделом:
+                <ul></ul>
             </div>
         </div>
-        <div class="wrap"></div>
+        <div id="html" style="display: none;">
+            <div class="main-title">
+                <img src="images/gerb.png" alt="Герб" class="gerb" />
+                <div class="main-text">
+                    <div class="gray">Клинические рекомендации</div>
+                    <h1 id="title"></h1>
+                    <div class="main-dopinfo">
+                        <div>
+                            <span class="gray">МКБ 10:</span>
+                            <b id="mkb"></b>
+                        </div>
+                        <div>
+                            <span class="gray">Год утверждения (частота пересмотра):</span>
+                            <b id="year"></b>
+                        </div>
+                    </div>
+                    <div class="main-dopinfo">
+                        <div>
+                            <span class="gray">ID: </span>
+                            <b id="id"></b>
+                        </div>
+                        <div>
+                            <span class="gray">URL:</span>
+                            <b id="url"></b>
+                        </div>
+                    </div>
+                    <div class="main-dopinfo">
+                        <div class="gray">Профессиональные ассоциации:</div>
+                        <ul>
+                            <li id="proff_associations"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main-footer">
+                    <div>
+                        <div class="title">Утверждены</div>
+                        <div class="text" id="approved"></div>
+                    </div>
+                    <div>
+                        <div class="title">Согласованы</div>
+                        <div class="text" id=""></div>
+                    </div>
+                </div>
+            </div>
+            <a name="start"></a>
+            <div class="wrap"></div>
+        </div>
     </body>
 </html>

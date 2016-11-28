@@ -8,31 +8,37 @@ td, th {
 }
 
 td .block_start, th .block_start {
+	display: block;
 	position: absolute;
 	top: 0;
 }
 
 td .block_close, th .block_close {
+	display: block;
 	position: absolute;
 	bottom: 0;
 }
 
 /* Блок подложки с цветом */
-.block {
+.block_close {
+	display: block;
+}
+
+.block, .part {
 	position: absolute;
 	margin: 0 auto;
 	z-index: -1;
 }
 
-.block_hidden {
+.block_hidden, .part_hidden {
 	display: none;
 }
 
 /* Цвета для блоков */
-.block_even {
+.block_even, .part_even {
 	background-color: #FFFBE1;
 }
 
-.block_odd {
+.block_odd, .part_odd {
 	background-color: #FFEBE1;
 }
