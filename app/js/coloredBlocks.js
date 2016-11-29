@@ -8,8 +8,8 @@
         this.json = json;
         this.target = $('.wrap');
         this.rendered = {
-            block: [],
-            part: []
+            block: {},
+            part: {}
         };
 
         this.renderDocumentHTML(this.json, this.target);
@@ -31,23 +31,35 @@
             $('#links').show();
         };
 
-        this.gotoColorPart = function(blockIndex) {
-            this.clearColorBlocks();
-            this.rendered.part[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'part');
-            $('html, body').animate({
-                scrollTop: $("#part_" + blockIndex + "_enter").offset().top
-            }, 1000);
-        };
-
-        this.gotoColorBlock = function(blockIndex) {
+        this.gotoColorPart = function(blockIndexes) {
             $('#html').show();
             this.clearColorBlocks();
-            this.rendered.block[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'block');
-            $('html, body').animate({
-                scrollTop: $("#block_" + blockIndex + "_enter").offset().top
-            }, 1000);
+
+            this.gotoBlock(blockIndexes, 'part');
+        };
+
+        this.gotoColorBlock = function(blockIndexes) {
+            $('#html').show();
+            this.clearColorBlocks();
+
+            this.gotoBlock(blockIndexes, 'block');
         };
     }
+
+    app.prototype.gotoBlock = function(blockIndexes, type) {
+        if (!$.isArray(blockIndexes)) blockIndexes = [blockIndexes];
+
+        var minOffset, self = this;
+        $.each(blockIndexes, function(index, item) {
+            if (!item) return;
+            var block = self.rendered[type][item] = self.renderColorBlock(self.target, item, type);
+            if (!minOffset || block.offset().top < minOffset) minOffset = block.offset().top;
+        })
+
+        $('html, body').animate({
+            scrollTop: minOffset - 30
+        }, 1000);
+    };
 
     app.prototype.clearColorBlocks = function() {
         $.each(this.rendered.block, function(i, item) {
@@ -58,8 +70,8 @@
            if (item) item.detach();
         });
 
-        this.rendered.block = [];
-        this.rendered.part = [];
+        this.rendered.block = {};
+        this.rendered.part = {};
     };
 
     app.prototype.addColorBlocks = function() {
