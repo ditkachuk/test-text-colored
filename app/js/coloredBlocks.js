@@ -80,8 +80,8 @@
     app.prototype.addColorBlocks = function() {
         if (!this.target[0]) return;
 
-        var enter = /%%(\d+)\s/g;
-        var close = /\s(\d+)%%/g;
+        var enter = /%%(\d+)/g;
+        var close = /(\d+)%%/g;
 
         var matches = this.target[0].innerHTML.match(enter);
 
