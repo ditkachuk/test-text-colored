@@ -19,12 +19,15 @@
             this.clearColorBlocks();
         };
 
+        this.getLinks = function() {
+            return this.matches || {};
+        };
+
         this.showLinks = function() {
             var links = '';
 
             $.each(this.matches, function(index, match) {
-                var blockIndex = parseInt(match.replace('%%', ''));
-                links += '<li><button onclick="app.gotoColorBlock(' + blockIndex + ')">' + blockIndex + '</button></li>';
+                links += '<li><button onclick="app.gotoColorBlock(' + index + ')">' + index + '</button></li>';
             });
 
             $('#links ul').html(links);
@@ -81,14 +84,21 @@
         var close = /\s(\d+)%%/g;
 
         var matches = this.target[0].innerHTML.match(enter);
-        if (!matches) return;
+
+        var links = {};
+        $.each(matches, function(index, match) {
+            var blockIndex = parseInt(match.replace('%%', ''));
+            links[blockIndex] = blockIndex;
+        });
+
+        if (!matches) return this.matches = {};
 
         var result = this.target[0].innerHTML.replace(enter, '<span id="block_$1_enter" class="block_$1 block_start"><a name="block_$1"></a></span>');
         result = result.replace(close, '<span id="block_$1_close" class="block_$1 block_close"></span>');
 
         this.target[0].innerHTML = result;
 
-        return this.matches = matches;
+        return this.matches = links;
     };
 
     app.prototype.renderColorBlock = function(target, blockIndex, type) {
