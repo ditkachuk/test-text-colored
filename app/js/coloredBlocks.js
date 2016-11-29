@@ -15,6 +15,7 @@
         this.loadDocumentJSON();
         this.renderDocument = function() {
             $('#html').show();
+            this.clearColorBlocks();
         };
 
         this.showLinks = function() {
@@ -30,6 +31,7 @@
         };
 
         this.gotoColorPart = function(blockIndex) {
+            this.clearColorBlocks();
             this.rendered.part[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'part');
             $('html, body').animate({
                 scrollTop: $("#part_" + blockIndex + "_enter").offset().top
@@ -38,12 +40,26 @@
 
         this.gotoColorBlock = function(blockIndex) {
             $('#html').show();
+            this.clearColorBlocks();
             this.rendered.block[blockIndex] = this.renderColorBlock(this.target, blockIndex, 'block');
             $('html, body').animate({
                 scrollTop: $("#block_" + blockIndex + "_enter").offset().top
             }, 1000);
         };
     }
+
+    app.prototype.clearColorBlocks = function() {
+        $.each(this.rendered.block, function(i, item) {
+            if (item) item.detach();
+        });
+
+        $.each(this.rendered.part, function(i, item) {
+           if (item) item.detach();
+        });
+
+        this.rendered.block = [];
+        this.rendered.part = [];
+    };
 
     app.prototype.addColorBlocks = function() {
         if (!this.target[0]) return;
@@ -74,8 +90,7 @@
         var startPoint = startBlock.offset().top;
         var closePoint = closeBlock.offset().top; 
 
-        var cls = (blockIndex % 2 == 0) ? 'even' : 'odd';
-        var colorBlock = $('<div class="' + type + ' ' + type + '_' + cls + '" id="' + type + '_' + blockIndex + '"></div>');
+        var colorBlock = $('<div class="' + type + '" id="' + type + '_' + blockIndex + '"></div>');
 
         colorBlock.css({top: startPoint});
         colorBlock.width(targetWidth);
