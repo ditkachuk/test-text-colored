@@ -1,18 +1,19 @@
 (function() {
+    window.Application = app;
     $(function() {
         $('#html').hide();
-        window.app = new app('data/data.json');
     });
 
-    function app(url) {
-        this.url = url;
+    function app(json) {
+        this.json = json;
         this.target = $('.wrap');
         this.rendered = {
             block: [],
             part: []
         };
 
-        this.loadDocumentJSON();
+        this.renderDocumentHTML(this.json, this.target);
+
         this.renderDocument = function() {
             $('#html').show();
             this.clearColorBlocks();
@@ -126,17 +127,8 @@
             tocHTML += '<li><a onclick="app.gotoColorPart(' + index + ')">' + part.title + '</a></li>';
         });
 
-        return target[0].innerHTML = tocHTML + '</ul>' + contentHTML;
-    };
+        target[0].innerHTML = tocHTML + '</ul>' + contentHTML;
 
-    app.prototype.loadDocumentJSON = function() {
-        var self = this;
-        
-        return $.ajax({url: this.url, dataType: "json"}).done(function(response) {
-            self.json = response;
-
-            self.renderDocumentHTML(response, self.target);
-            self.addColorBlocks(self.target);
-        });
+        this.addColorBlocks(target);
     };
 })();
