@@ -130,7 +130,8 @@
                 return;
             }
 
-            var content = part.content.replace(/background: #ffffff/g, '');
+            var content = part.content.replace(/background: #ffffff/gi, '');
+            content = content.replace(/BGCOLOR="#ffffff"/gi, '');
 
             contentHTML += '<span id="part_' + index + '_enter" class="part_' + index + ' part_start"><a name="part_' + index + '"></a></span>'
                 + '<h1>' + part.title + '</h1>' + content
