@@ -57,7 +57,7 @@
             if (!item) return;
             var block = self.rendered[type][item] = self.renderColorBlock(self.target, item, type);
             if (!minOffset || block.offset().top < minOffset) minOffset = block.offset().top;
-        })
+        });
 
         $('html, body').animate({
             scrollTop: minOffset - 30
